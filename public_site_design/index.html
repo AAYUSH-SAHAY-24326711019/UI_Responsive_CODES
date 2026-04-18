@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="notices">
+        <div class="noticeBTN">
+          <a href="#">Notices</a>
+        </div>
+
+        <div class="noticeMarqee">
+          <div class="marquee">
+            <div class="marquee-content">
+              Welcome to College ERP Portal 🚀 Built with Python • Django •
+              PostgreSQL • AWS • Docker
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <div class="logo">College PVT LTD</div>
+
+        <div class="menu">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Academics</a>
+          <a href="#">Admissions</a>
+          <a href="#">Gallery</a>
+          <a href="#">Notice Board</a>
+          <a href="#">Contact us</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="carousel">
+        <img class="slide active" src="assets_images/clg_campus_1.jpg" />
+        <img class="slide" src="assets_images/clg_campus_2.jpg" />
+        <img class="slide" src="assets_images/clg_campus_3.jpg" />
+        <img class="slide" src="assets_images/clg_campus_4.jpg" />
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+
+      <div class="card">
+        <center><h4>Events</h4></center>
+      </div>
+
+      <div class="card">
+        <center>
+            <h4>Communication form</h4>
+        </center>
+
+      </div>
+
+    </main>
+
+    <script>
+      let slides = document.querySelectorAll(".slide");
+      let index = 0;
+
+      function showSlide(i) {
+        slides[index].classList.remove("active");
+        index = (i + slides.length) % slides.length;
+        slides[index].classList.add("active");
+      }
+
+      document.querySelector(".next").onclick = () => showSlide(index + 1);
+      document.querySelector(".prev").onclick = () => showSlide(index - 1);
+
+      // auto-rotate every 3 seconds
+      setInterval(() => showSlide(index + 1), 3000);
+    </script>
+  </body>
+</html>
