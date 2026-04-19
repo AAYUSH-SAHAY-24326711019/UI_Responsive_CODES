@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="rotateMessage">
+      Please rotate your phone to Landscape mode and enable Desktop Site.
+    </div>
+    <div id="mainContent">
+      <!-- YOUR FULL WEBSITE CONTENT HERE -->
+    
     <header>
       <div class="notices">
         <div class="noticeBTN">
@@ -49,18 +55,29 @@
       </div>
 
       <div class="card">
-        <center><h4>Events</h4></center>
+        <div class="cardheading">
+          <center><h4>Events</h4></center>
+        </div>
+
+        <!-- scroller of events start-->
+        <!-- scroller of events end-->
       </div>
 
       <div class="card">
-        <center>
+        <div class="cardheading">
+          <center>
             <h4>Communication form</h4>
-        </center>
+          </center>
+        </div>
+        <!-- scroller of events start-->
 
+        <!-- scroller of events end-->
       </div>
-
     </main>
+    <footer>
 
+    </footer>
+    </div>
     <script>
       let slides = document.querySelectorAll(".slide");
       let index = 0;
@@ -76,6 +93,23 @@
 
       // auto-rotate every 3 seconds
       setInterval(() => showSlide(index + 1), 3000);
+
+      // code for rotate screen start
+      function checkOrientation() {
+        let isMobile = /Mobi|Android|iPhone/i.test(navigator.userAgent);
+
+        if (isMobile && window.innerHeight > window.innerWidth) {
+          document.getElementById("rotateMessage").style.display = "flex";
+          document.getElementById("mainContent").style.display = "none";
+        } else {
+          document.getElementById("rotateMessage").style.display = "none";
+          document.getElementById("mainContent").style.display = "block";
+        }
+      }
+
+      window.onload = checkOrientation;
+      window.onresize = checkOrientation;
+      // code for rotate screen end
     </script>
   </body>
 </html>
